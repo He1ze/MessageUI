@@ -1,0 +1,36 @@
+Thanks for using my model.
+Here is my explanation of the LocalScript:
+
+repeat wait() until game:IsLoaded() --waits to "declare" the script until the player is loaded.
+
+local main = script.Parent.Main --references my frame called "Main"
+
+local player = game.Players.LocalPlayer --references the player data
+
+
+local function guiMove() --defines a function named guiMove
+	main.Sound:Play() --this sound object is a child of "main"
+	main:TweenPosition( --TweenPosition has a few arguments: position, direction, style, time, override, callback.
+		UDim2.new(0.355, 0, 0, 0),
+		Enum.EasingDirection.Out, --Enum creates a list so you can easily access a list through a script
+		Enum.EasingStyle.Quad
+		)
+end
+
+local function guiBack()
+	main:TweenPosition(
+		UDim2.new(0.355, 0, -1, 0),
+		Enum.EasingDirection.In,
+		Enum.EasingStyle.Quad,
+		2
+	)
+end
+
+
+
+
+guiMove() --calls the function guiMove
+
+wait(4)
+
+guiBack()  --calls the function guiBack
